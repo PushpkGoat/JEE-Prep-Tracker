@@ -1,0 +1,98 @@
+:root {
+    --primary-color: #8a2be2; /* Neon Purple */
+    --secondary-color: #4b0082; /* Dark Purple */
+    --background-color: #1a1a1a; /* Black */
+    --text-color: #ffffff; /* White */
+    --glow-color: rgba(138, 43, 226, 0.6); /* Glowing Purple */
+}
+
+[data-theme="light"] {
+    --primary-color: #8a2be2;
+    --secondary-color: #e6e6fa; /* Light Purple */
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --glow-color: rgba(138, 43, 226, 0.4);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0 0 10px var(--glow-color);
+    transform: scale(1.05);
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    box-shadow: 0 0 10px var(--glow-color);
+    transition: transform 0.3s ease;
+}
+
+.category:hover {
+    transform: scale(1.05);
+}
+
+.subject h4 {
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.leaderboard th, .leaderboard td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.leaderboard th {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.leaderboard tr:hover {
+    background-color: var(--secondary-color);
+}

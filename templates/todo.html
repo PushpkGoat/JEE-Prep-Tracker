@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>To-Do List</h2>
+    <form method="POST" action="{{ url_for('add_todo', user_id=user_id) }}">
+        <input type="text" name="task" placeholder="Add a new task" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul class="todo-list">
+        {% for todo in todos %}
+            <li class="{% if todo['completed'] %}completed{% endif %}">
+                <input type="checkbox" 
+                       onchange="window.location.href='{{ url_for('toggle_todo', todo_id=todo['id'], user_id=user_id) }}'"
+                       {% if todo['completed'] %}checked{% endif %}>
+                <span>{{ todo['task'] }}</span>
+                <a href="{{ url_for('delete_todo', todo_id=todo['id'], user_id=user_id) }}">❌</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

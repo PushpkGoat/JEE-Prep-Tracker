@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Welcome, {{ user['username'] }}!</h2>
+    <div class="categories">
+        {% for class_name, subjects in chapters.items() %}
+            <div class="category">
+                <h3>Class {{ class_name }}</h3>
+                {% for subject, chapters_list in subjects.items() %}
+                    <div class="subject">
+                        <h4>{{ subject }}</h4>
+                        <ul>
+                            {% for chapter in chapters_list %}
+                                <li>
+                                    {{ chapter }}
+                                    <a href="{{ url_for('mark_complete', user_id=user['id'], class_name=class_name, subject=subject, chapter=chapter) }}">
+                                        Mark as Complete
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Prep Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>JEE Prep Tracker</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            {% if user %}
+                <a href="{{ url_for('dashboard', user_id=user['id']) }}">Dashboard</a>
+                <a href="{{ url_for('leaderboard') }}">Leaderboard</a>
+                <a href="{{ url_for('todo', user_id=user['id']) }}">To-Do List</a>
+            {% endif %}
+        </nav>
+        <button id="theme-toggle">Toggle Theme</button>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
